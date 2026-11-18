@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs><marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#0f766e"/></marker></defs>
+  <rect width="960" height="470" fill="#f8fafc"/>
+  <text x="480" y="26" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">ClimateSense AI - System architecture</text>
+  <g stroke="#0f766e" stroke-width="1.6" fill="#ecfeff">
+    <rect x="20" y="60" width="210" height="110" rx="10"/><rect x="20" y="190" width="210" height="80" rx="10"/><rect x="20" y="290" width="210" height="90" rx="10"/>
+    <rect x="300" y="60" width="190" height="150" rx="10" fill="#f0fdf4"/><rect x="300" y="240" width="190" height="140" rx="10" fill="#f0fdf4"/>
+    <rect x="560" y="60" width="180" height="320" rx="10" fill="#eff6ff"/><rect x="800" y="60" width="140" height="320" rx="10" fill="#fefce8"/>
+  </g>
+  <g fill="#0f172a">
+    <text x="125" y="82" text-anchor="middle" font-weight="700">① Weather data</text>
+    <text x="32" y="104">Open-Meteo Historical Forecast API</text><text x="32" y="122">(2022→, archived model forecasts)</text>
+    <text x="32" y="144">Open-Meteo Forecast API (live)</text><text x="32" y="162">current + hourly + daily</text>
+    <text x="125" y="212" text-anchor="middle" font-weight="700">② Climate baseline</text>
+    <text x="32" y="234">Open-Meteo Historical Weather API</text><text x="32" y="252">ERA5-Land 1991-2020 normals</text>
+    <text x="125" y="312" text-anchor="middle" font-weight="700">③ Global evidence</text>
+    <text x="32" y="334">NOAA GML: CO₂ · CH₄ · N₂O (monthly)</text><text x="32" y="352">NASA GISTEMP v4 anomalies</text><text x="32" y="370">(monthly, not real-time)</text>
+    <text x="395" y="82" text-anchor="middle" font-weight="700">④ Google Colab notebook</text>
+    <text x="312" y="106">data → clean → features</text><text x="312" y="124">chronological 70/15/15 split</text><text x="312" y="142">Linear · SVR(RBF) · Random Forest</text><text x="312" y="160">MAE · MSE · R² · SHAP · anomalies</text><text x="312" y="188" font-weight="600" fill="#0f766e">exports model + JSON + normals</text>
+    <text x="395" y="262" text-anchor="middle" font-weight="700">⑤ backend/models/</text>
+    <text x="312" y="286">best_model.joblib</text><text x="312" y="304">model_metrics.json</text><text x="312" y="322">feature_importance.json</text><text x="312" y="340">feature_schema.json · training_metadata.json</text><text x="312" y="358">city_climate_normals.csv</text>
+    <text x="650" y="82" text-anchor="middle" font-weight="700">⑥ FastAPI backend (Render)</text>
+    <text x="572" y="108">/api/live  /api/compare</text><text x="572" y="128">/api/predict (shared features)</text><text x="572" y="148">/api/metrics  /api/models</text><text x="572" y="168">/api/explain (local Shapley)</text><text x="572" y="188">/api/climate-indicators</text><text x="572" y="208">/api/sensor/* (token)</text><text x="572" y="236">TTL cache · stale-if-error</text><text x="572" y="254">input validation · CORS</text><text x="572" y="272">503 if model missing -</text><text x="572" y="290">never fake predictions</text>
+    <text x="870" y="82" text-anchor="middle" font-weight="700">⑦ React (Vercel)</text>
+    <text x="810" y="108">Dashboard</text><text x="810" y="128">Live Monitoring</text><text x="810" y="148">AI Predictions</text><text x="810" y="168">Model Lab</text><text x="810" y="188">Explainable AI</text><text x="810" y="208">Climate Evidence</text><text x="810" y="228">Urban Cooling</text><text x="810" y="248">Prototype Lab</text>
+  </g>
+  <g stroke="#0f766e" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M230 115 H300"/><path d="M230 230 H265 V150 H300"/><path d="M395 210 V240"/><path d="M490 310 H560"/><path d="M230 150 H262 V80 H275" stroke-dasharray="0"/>
+    <path d="M230 335 H530 V200 H560"/><path d="M740 220 H800"/>
+  </g>
+  <g fill="#0f172a">
+    <rect x="560" y="400" width="380" height="50" rx="10" fill="#fff" stroke="#0f766e" stroke-width="1.6"/><text x="750" y="421" text-anchor="middle" font-weight="700">⑧ Optional ESP32 prototype</text><text x="750" y="439" text-anchor="middle">2× DS18B20 (dark vs reflective roof) → POST /api/sensor/reading</text>
+  </g>
+  <path d="M750 400 V380" stroke="#0f766e" stroke-width="2" marker-end="url(#a)"/>
+  <text x="20" y="440" fill="#475569">Training and live inference use the SAME file: backend/app/ml/feature_engineering.py</text>
+  <text x="20" y="458" fill="#475569">Weather forecast (ML) ≠ climate-change evidence (NOAA/NASA): shown separately on purpose.</text>
+</svg>

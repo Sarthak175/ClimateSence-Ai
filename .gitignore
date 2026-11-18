@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+# Node
+node_modules/
+frontend/dist/
+# Secrets / local config
+.env
+*.env
+!.env.example
+# Runtime data (ephemeral on Render)
+backend/data/
+# Large raw data are produced by the notebook; commit only if you want them public
+data/raw/*.csv.gz
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+climatesense_output/
+climatesense_artifacts.zip
+# NOTE: backend/models/* IS committed on purpose (Render needs the trained model).

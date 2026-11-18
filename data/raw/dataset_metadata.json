@@ -1,0 +1,107 @@
+{
+  "name": "ClimateSense AI training dataset (hourly, raw)",
+  "source": "Open-Meteo Historical Forecast API (archived weather-model forecasts)",
+  "source_url": "https://historical-forecast-api.open-meteo.com/v1/forecast",
+  "documentation": "https://open-meteo.com/en/docs/historical-forecast-api",
+  "license": "CC BY 4.0 - Open-Meteo.com (weather data); free tier for non-commercial use",
+  "retrieval_date_utc": "2026-11-12T13:47:47+00:00",
+  "requested_period": "2022-01-01 to 2026-11-10",
+  "observation_period": "2022-01-01 to 2026-11-10",
+  "timezone": "Asia/Kolkata",
+  "cities": {
+    "Chennai": {
+      "lat": 13.0827,
+      "lon": 80.2707,
+      "grid_latitude": 13.110721,
+      "grid_longitude": 80.2459,
+      "elevation_m": 12.0
+    },
+    "Delhi": {
+      "lat": 28.6139,
+      "lon": 77.209,
+      "grid_latitude": 28.576448,
+      "grid_longitude": 77.18678,
+      "elevation_m": 214.0
+    },
+    "Mumbai": {
+      "lat": 19.076,
+      "lon": 72.8777,
+      "grid_latitude": 19.086115,
+      "grid_longitude": 72.85291,
+      "elevation_m": 6.0
+    },
+    "Bengaluru": {
+      "lat": 12.9716,
+      "lon": 77.5946,
+      "grid_latitude": 12.970123,
+      "grid_longitude": 77.56364,
+      "elevation_m": 910.0
+    },
+    "Hyderabad": {
+      "lat": 17.385,
+      "lon": 78.4867,
+      "grid_latitude": 17.398945,
+      "grid_longitude": 78.457085,
+      "elevation_m": 505.0
+    },
+    "Kolkata": {
+      "lat": 22.5726,
+      "lon": 88.3639,
+      "grid_latitude": 22.601053,
+      "grid_longitude": 88.31776,
+      "elevation_m": 12.0
+    }
+  },
+  "variables": [
+    "temperature_2m",
+    "relative_humidity_2m",
+    "precipitation",
+    "wind_speed_10m",
+    "surface_pressure",
+    "cloud_cover",
+    "shortwave_radiation"
+  ],
+  "units": {
+    "time": "iso8601",
+    "temperature_2m": "°C",
+    "relative_humidity_2m": "%",
+    "precipitation": "mm",
+    "wind_speed_10m": "km/h",
+    "surface_pressure": "hPa",
+    "cloud_cover": "%",
+    "shortwave_radiation": "W/m²"
+  },
+  "hourly_records": 255600,
+  "records_per_city": {
+    "Bengaluru": 42600,
+    "Chennai": 42600,
+    "Delhi": 42600,
+    "Hyderabad": 42600,
+    "Kolkata": 42600,
+    "Mumbai": 42600
+  },
+  "nature_of_values": "model-derived (archived NWP forecasts), not station observations",
+  "daily_records": 10650,
+  "model_rows": 10608,
+  "model_rows_per_city": {
+    "Bengaluru": 1768,
+    "Chennai": 1768,
+    "Delhi": 1768,
+    "Hyderabad": 1768,
+    "Kolkata": 1768,
+    "Mumbai": 1768
+  },
+  "first_model_date": "2022-01-07",
+  "last_model_date": "2026-11-09",
+  "daily_aggregation": {
+    "day": "local calendar day (Asia/Kolkata)",
+    "min_valid_hours": 22,
+    "tmax/tmin": "max/min of hourly temperature_2m",
+    "precipitation": "sum of hourly values",
+    "humidity/wind/pressure/cloud": "mean of hourly values",
+    "solar": "sum of hourly shortwave radiation converted to MJ/m2"
+  },
+  "omitted_features": [
+    "Dew point and apparent temperature were not used: not needed for the minimum feature set."
+  ]
+}

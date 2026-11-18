@@ -1,0 +1,292 @@
+{
+  "features": [
+    "tmax_d0",
+    "tmin_d0",
+    "tmax_d1",
+    "tmax_d2",
+    "tmin_d1",
+    "rh_mean_d0",
+    "precip_d0",
+    "precip_sum3",
+    "wind_mean_d0",
+    "solar_mj_d0",
+    "pressure_mean_d0",
+    "cloud_mean_d0",
+    "tmax_roll3",
+    "tmax_roll7",
+    "doy_sin",
+    "doy_cos",
+    "latitude",
+    "longitude"
+  ],
+  "target": "target_tmax",
+  "details": [
+    {
+      "name": "tmax_d0",
+      "label": "Max temperature, cutoff day",
+      "unit": "°C"
+    },
+    {
+      "name": "tmin_d0",
+      "label": "Min temperature, cutoff day",
+      "unit": "°C"
+    },
+    {
+      "name": "tmax_d1",
+      "label": "Max temperature, 1 day before cutoff",
+      "unit": "°C"
+    },
+    {
+      "name": "tmax_d2",
+      "label": "Max temperature, 2 days before cutoff",
+      "unit": "°C"
+    },
+    {
+      "name": "tmin_d1",
+      "label": "Min temperature, 1 day before cutoff",
+      "unit": "°C"
+    },
+    {
+      "name": "rh_mean_d0",
+      "label": "Mean relative humidity, cutoff day",
+      "unit": "%"
+    },
+    {
+      "name": "precip_d0",
+      "label": "Precipitation total, cutoff day",
+      "unit": "mm"
+    },
+    {
+      "name": "precip_sum3",
+      "label": "Precipitation total, last 3 days",
+      "unit": "mm"
+    },
+    {
+      "name": "wind_mean_d0",
+      "label": "Mean wind speed (10 m), cutoff day",
+      "unit": "km/h"
+    },
+    {
+      "name": "solar_mj_d0",
+      "label": "Shortwave solar radiation total, cutoff day",
+      "unit": "MJ/m²"
+    },
+    {
+      "name": "pressure_mean_d0",
+      "label": "Mean surface pressure, cutoff day",
+      "unit": "hPa"
+    },
+    {
+      "name": "cloud_mean_d0",
+      "label": "Mean cloud cover, cutoff day",
+      "unit": "%"
+    },
+    {
+      "name": "tmax_roll3",
+      "label": "3-day rolling mean of max temperature",
+      "unit": "°C"
+    },
+    {
+      "name": "tmax_roll7",
+      "label": "7-day rolling mean of max temperature",
+      "unit": "°C"
+    },
+    {
+      "name": "doy_sin",
+      "label": "Seasonality: sin(2π·day-of-year/365) of target day",
+      "unit": "-"
+    },
+    {
+      "name": "doy_cos",
+      "label": "Seasonality: cos(2π·day-of-year/365) of target day",
+      "unit": "-"
+    },
+    {
+      "name": "latitude",
+      "label": "Latitude of the city",
+      "unit": "°"
+    },
+    {
+      "name": "longitude",
+      "label": "Longitude of the city",
+      "unit": "°"
+    }
+  ],
+  "feature_module_version": "1.0.0",
+  "feature_module_sha256": "9bac89fa99031002918668fd611278e165947d073d80343203320c51ea129843",
+  "hourly_variables": [
+    "temperature_2m",
+    "relative_humidity_2m",
+    "precipitation",
+    "wind_speed_10m",
+    "surface_pressure",
+    "cloud_cover",
+    "shortwave_radiation"
+  ],
+  "expected_units": {
+    "temperature_2m": "°C",
+    "relative_humidity_2m": "%",
+    "precipitation": "mm",
+    "wind_speed_10m": "km/h",
+    "surface_pressure": "hPa",
+    "cloud_cover": "%",
+    "shortwave_radiation": "W/m²"
+  },
+  "cutoff_definition": "Features use data of days <= D (local calendar days); target = max 2 m temperature of day D+1.",
+  "training_cities": [
+    "Chennai",
+    "Delhi",
+    "Mumbai",
+    "Bengaluru",
+    "Hyderabad",
+    "Kolkata"
+  ],
+  "feature_stats": {
+    "tmax_d0": {
+      "min": 14.1,
+      "max": 46.0,
+      "mean": 31.003961196443008,
+      "median": 30.9,
+      "std": 4.333485310786068
+    },
+    "tmin_d0": {
+      "min": 3.2,
+      "max": 34.5,
+      "mean": 21.771139854486666,
+      "median": 22.6,
+      "std": 4.6829205704315156
+    },
+    "tmax_d1": {
+      "min": 14.1,
+      "max": 46.0,
+      "mean": 30.999178119105366,
+      "median": 30.9,
+      "std": 4.3358998630611625
+    },
+    "tmax_d2": {
+      "min": 14.1,
+      "max": 46.0,
+      "mean": 30.994745351657237,
+      "median": 30.9,
+      "std": 4.340107544210463
+    },
+    "tmin_d1": {
+      "min": 3.2,
+      "max": 34.5,
+      "mean": 21.764012395580707,
+      "median": 22.6,
+      "std": 4.685389989888282
+    },
+    "rh_mean_d0": {
+      "min": 10.25,
+      "max": 95.58333333333333,
+      "mean": 68.64901082367736,
+      "median": 72.70833333333333,
+      "std": 16.281348980912682
+    },
+    "precip_d0": {
+      "min": 0.0,
+      "max": 255.8,
+      "mean": 3.6931285367825386,
+      "median": 0.0,
+      "std": 9.679565657399667
+    },
+    "precip_sum3": {
+      "min": 0.0,
+      "max": 335.1,
+      "mean": 11.064254917811907,
+      "median": 0.8999999999999948,
+      "std": 24.001735459279374
+    },
+    "wind_mean_d0": {
+      "min": 2.3375,
+      "max": 39.9,
+      "mean": 10.655615624719301,
+      "median": 9.887500000000001,
+      "std": 4.260293114141686
+    },
+    "solar_mj_d0": {
+      "min": 0.6732,
+      "max": 27.6336,
+      "mean": 18.956397089733226,
+      "median": 19.5768,
+      "std": 4.620049051355985
+    },
+    "pressure_mean_d0": {
+      "min": 905.9250000000001,
+      "max": 1018.1833333333334,
+      "mean": 978.6943843752807,
+      "median": 995.1645833333333,
+      "std": 35.93355603798168
+    },
+    "cloud_mean_d0": {
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 51.64686629839216,
+      "median": 50.97916666666667,
+      "std": 36.0786547261525
+    },
+    "tmax_roll3": {
+      "min": 14.933333333333328,
+      "max": 45.833333333333336,
+      "mean": 30.999294889068533,
+      "median": 30.96666666666667,
+      "std": 4.249951989514523
+    },
+    "tmax_roll7": {
+      "min": 16.057142857142857,
+      "max": 45.614285714285714,
+      "mean": 30.98985448666128,
+      "median": 30.971428571428568,
+      "std": 4.159083097055246
+    },
+    "doy_sin": {
+      "min": -0.9999907397361901,
+      "max": 0.9999907397361901,
+      "mean": 0.08640400436167141,
+      "median": 0.1882267098432442,
+      "std": 0.7117537771645316
+    },
+    "doy_cos": {
+      "min": -0.9999629591162655,
+      "max": 1.0,
+      "mean": 0.02032338385192807,
+      "median": 0.03872228089217399,
+      "std": 0.6968942242870204
+    },
+    "latitude": {
+      "min": 12.9716,
+      "max": 28.6139,
+      "mean": 18.950300000000002,
+      "median": 18.2305,
+      "std": 5.46458157381679
+    },
+    "longitude": {
+      "min": 72.8777,
+      "max": 88.3639,
+      "mean": 79.13376666666669,
+      "median": 78.04065,
+      "std": 4.69284221417422
+    }
+  },
+  "baseline": {
+    "tmax_d0": 31.003961196443008,
+    "tmin_d0": 21.771139854486666,
+    "tmax_d1": 30.999178119105366,
+    "tmax_d2": 30.994745351657237,
+    "tmin_d1": 21.764012395580707,
+    "rh_mean_d0": 68.64901082367736,
+    "precip_d0": 3.6931285367825386,
+    "precip_sum3": 11.064254917811907,
+    "wind_mean_d0": 10.655615624719301,
+    "solar_mj_d0": 18.956397089733226,
+    "pressure_mean_d0": 978.6943843752807,
+    "cloud_mean_d0": 51.64686629839216,
+    "tmax_roll3": 30.999294889068533,
+    "tmax_roll7": 30.98985448666128,
+    "doy_sin": 0.08640400436167141,
+    "doy_cos": 0.02032338385192807,
+    "latitude": 18.950300000000002,
+    "longitude": 79.13376666666669
+  }
+}

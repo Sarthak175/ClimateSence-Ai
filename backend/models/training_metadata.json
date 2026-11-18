@@ -1,0 +1,314 @@
+{
+  "generated_at_utc": "2026-11-12T13:59:25+00:00",
+  "dataset": {
+    "source": "Open-Meteo Historical Forecast API (archived weather-model forecasts)",
+    "source_url": "https://historical-forecast-api.open-meteo.com/v1/forecast",
+    "retrieval_date_utc": "2026-11-12T13:47:47+00:00",
+    "observation_period": "2022-01-01 to 2026-11-10",
+    "cities": {
+      "Chennai": {
+        "lat": 13.0827,
+        "lon": 80.2707,
+        "grid_latitude": 13.110721,
+        "grid_longitude": 80.2459,
+        "elevation_m": 12.0
+      },
+      "Delhi": {
+        "lat": 28.6139,
+        "lon": 77.209,
+        "grid_latitude": 28.576448,
+        "grid_longitude": 77.18678,
+        "elevation_m": 214.0
+      },
+      "Mumbai": {
+        "lat": 19.076,
+        "lon": 72.8777,
+        "grid_latitude": 19.086115,
+        "grid_longitude": 72.85291,
+        "elevation_m": 6.0
+      },
+      "Bengaluru": {
+        "lat": 12.9716,
+        "lon": 77.5946,
+        "grid_latitude": 12.970123,
+        "grid_longitude": 77.56364,
+        "elevation_m": 910.0
+      },
+      "Hyderabad": {
+        "lat": 17.385,
+        "lon": 78.4867,
+        "grid_latitude": 17.398945,
+        "grid_longitude": 78.457085,
+        "elevation_m": 505.0
+      },
+      "Kolkata": {
+        "lat": 22.5726,
+        "lon": 88.3639,
+        "grid_latitude": 22.601053,
+        "grid_longitude": 88.31776,
+        "elevation_m": 12.0
+      }
+    },
+    "units": {
+      "time": "iso8601",
+      "temperature_2m": "°C",
+      "relative_humidity_2m": "%",
+      "precipitation": "mm",
+      "wind_speed_10m": "km/h",
+      "surface_pressure": "hPa",
+      "cloud_cover": "%",
+      "shortwave_radiation": "W/m²"
+    },
+    "hourly_records": 255600,
+    "daily_records": 10650,
+    "model_rows": 10608,
+    "nature_of_values": "model-derived (archived NWP forecasts), not station observations",
+    "period": "2022-01-01 to 2026-11-10"
+  },
+  "training": {
+    "seed": 42,
+    "cv": "5-fold expanding-window by unique date, 1-day embargo",
+    "scoring": "neg_mean_absolute_error",
+    "search": {
+      "Linear Regression": {
+        "best_params": {},
+        "cv_mae_mean": 0.9480746969777825,
+        "cv_mae_std": 0.07588124282821915,
+        "n_candidates": 1,
+        "n_cv_folds": 5,
+        "fit_seconds": 1.9
+      },
+      "SVR (RBF)": {
+        "best_params": {
+          "regressor__svr__C": 1,
+          "regressor__svr__epsilon": 0.05,
+          "regressor__svr__gamma": 0.01
+        },
+        "cv_mae_mean": 0.9084671428385771,
+        "cv_mae_std": 0.06991421488432303,
+        "n_candidates": 12,
+        "n_cv_folds": 5,
+        "fit_seconds": 45.6
+      },
+      "Random Forest": {
+        "best_params": {
+          "rf__max_depth": 14,
+          "rf__max_features": 0.5,
+          "rf__min_samples_leaf": 5,
+          "rf__n_estimators": 300
+        },
+        "cv_mae_mean": 0.9296473598447033,
+        "cv_mae_std": 0.08111172214599749,
+        "n_candidates": 12,
+        "n_cv_folds": 5,
+        "fit_seconds": 161.1
+      }
+    },
+    "split": {
+      "train": {
+        "start": "2022-01-07",
+        "end": "2025-05-27",
+        "n_dates": 1237,
+        "n_rows": 7422,
+        "share_pct": 70.0
+      },
+      "validation": {
+        "start": "2025-05-29",
+        "end": "2026-02-16",
+        "n_dates": 264,
+        "n_rows": 1584,
+        "share_pct": 14.9
+      },
+      "test": {
+        "start": "2026-02-18",
+        "end": "2026-11-09",
+        "n_dates": 265,
+        "n_rows": 1590,
+        "share_pct": 15.0
+      }
+    },
+    "selected_model": "SVR (RBF)"
+  },
+  "climate_normals": {
+    "baseline_period": "1991-2020",
+    "product": "ERA5-Land via Open-Meteo Historical Weather API (models=era5_land)",
+    "variable": "temperature_2m_max (daily)",
+    "window_days": 15,
+    "percentiles": [
+      90,
+      95
+    ],
+    "product_offset_applied": true,
+    "product_offsets": {
+      "Chennai": {
+        "mean_offset_c": 0.08654607122668173,
+        "rmsd_c": 1.0209091593224482,
+        "n_days": 1769,
+        "monthly_offset_c": {
+          "1": 0.28,
+          "2": 0.01,
+          "3": -0.41,
+          "4": -0.83,
+          "5": 0.02,
+          "6": 0.52,
+          "7": 0.64,
+          "8": 0.26,
+          "9": 0.12,
+          "10": -0.09,
+          "11": 0.19,
+          "12": 0.39
+        }
+      },
+      "Delhi": {
+        "mean_offset_c": 0.18846806105144154,
+        "rmsd_c": 1.0984083247757581,
+        "n_days": 1769,
+        "monthly_offset_c": {
+          "1": -0.49,
+          "2": 0.02,
+          "3": 0.23,
+          "4": 0.3,
+          "5": 0.19,
+          "6": 0.11,
+          "7": 0.64,
+          "8": 0.67,
+          "9": 0.77,
+          "10": 0.2,
+          "11": -0.15,
+          "12": -0.4
+        }
+      },
+      "Mumbai": {
+        "mean_offset_c": 0.5756924816280384,
+        "rmsd_c": 1.1043620792272106,
+        "n_days": 1769,
+        "monthly_offset_c": {
+          "1": 0.74,
+          "2": 0.86,
+          "3": 0.75,
+          "4": 0.27,
+          "5": 0.17,
+          "6": 0.18,
+          "7": 0.18,
+          "8": 0.19,
+          "9": 0.29,
+          "10": 0.89,
+          "11": 1.44,
+          "12": 1.25
+        }
+      },
+      "Bengaluru": {
+        "mean_offset_c": 0.960712266817411,
+        "rmsd_c": 1.3048437829519757,
+        "n_days": 1769,
+        "monthly_offset_c": {
+          "1": 0.83,
+          "2": 0.63,
+          "3": 0.93,
+          "4": 0.98,
+          "5": 0.63,
+          "6": 0.98,
+          "7": 1.36,
+          "8": 0.93,
+          "9": 0.84,
+          "10": 0.84,
+          "11": 1.46,
+          "12": 1.24
+        }
+      },
+      "Hyderabad": {
+        "mean_offset_c": 0.6803843979649519,
+        "rmsd_c": 1.192230358534928,
+        "n_days": 1769,
+        "monthly_offset_c": {
+          "1": 0.36,
+          "2": 0.53,
+          "3": 0.49,
+          "4": 0.12,
+          "5": 0.01,
+          "6": 0.44,
+          "7": 1.31,
+          "8": 0.97,
+          "9": 0.93,
+          "10": 0.91,
+          "11": 1.39,
+          "12": 0.86
+        }
+      },
+      "Kolkata": {
+        "mean_offset_c": 0.5128886376483889,
+        "rmsd_c": 1.1061956153415142,
+        "n_days": 1769,
+        "monthly_offset_c": {
+          "1": 0.58,
+          "2": 0.69,
+          "3": 0.78,
+          "4": 0.79,
+          "5": 0.41,
+          "6": 0.24,
+          "7": 0.38,
+          "8": 0.36,
+          "9": 0.18,
+          "10": 0.68,
+          "11": 0.72,
+          "12": 0.37
+        }
+      }
+    },
+    "grid": {
+      "Chennai": {
+        "grid_latitude": 13.099998,
+        "grid_longitude": 80.20001,
+        "elevation_m": 12.0,
+        "baseline_days": 10958
+      },
+      "Delhi": {
+        "grid_latitude": 28.599998,
+        "grid_longitude": 77.20001,
+        "elevation_m": 214.0,
+        "baseline_days": 10958
+      },
+      "Mumbai": {
+        "grid_latitude": 19.099998,
+        "grid_longitude": 72.90001,
+        "elevation_m": 6.0,
+        "baseline_days": 10958
+      },
+      "Bengaluru": {
+        "grid_latitude": 13.0,
+        "grid_longitude": 77.600006,
+        "elevation_m": 910.0,
+        "baseline_days": 10958
+      },
+      "Hyderabad": {
+        "grid_latitude": 17.400002,
+        "grid_longitude": 78.5,
+        "elevation_m": 505.0,
+        "baseline_days": 10958
+      },
+      "Kolkata": {
+        "grid_latitude": 22.599998,
+        "grid_longitude": 88.399994,
+        "elevation_m": 12.0,
+        "baseline_days": 10958
+      }
+    },
+    "resolution": "approx. 0.1° (≈9-11 km)",
+    "documentation": "https://open-meteo.com/en/docs/historical-weather-api"
+  },
+  "environment": {
+    "python": "3.13.18",
+    "scikit_learn": "1.9.1",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "shap": "0.54.1",
+    "platform": "Linux-6.18.44-fc-v378-x86_64-with-glibc2.39"
+  },
+  "limitations": [
+    "Training data are archived weather-model values (not station observations); the target is model-derived.",
+    "About four years of data: enough to learn the seasonal cycle, not to represent rare extremes or climate trends.",
+    "Latitude/longitude identify only six cities; the model is not validated for other locations.",
+    "Heat categories are project-defined and are not IMD warnings.",
+    "The daily regression model forecasts weather; it does not prove greenhouse-gas causation."
+  ]
+}
